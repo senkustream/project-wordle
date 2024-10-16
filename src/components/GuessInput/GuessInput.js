@@ -1,6 +1,6 @@
 import React from "react";
 
-function GuessInput({ handleGuessInput, isOver }) {
+function GuessInput({ handleGuessInput, gameStatus }) {
     const [value, setValue] = React.useState('');
 
     return (
@@ -17,7 +17,7 @@ function GuessInput({ handleGuessInput, isOver }) {
                 maxLength={5}
                 pattern="[a-zA-Z]{5}"
                 title="5 letter word"
-                disabled={isOver}
+                disabled={gameStatus !== 'running'}
                 onChange={(event) => {
                     const value = event.target.value;
                     setValue(value.toUpperCase());
