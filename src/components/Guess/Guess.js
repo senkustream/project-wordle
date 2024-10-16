@@ -5,7 +5,8 @@ function Guess({ guess }) {
   return (
       <p className="guess">
         { range(5).map((value, index) => {
-            return (<span key={index} className={`cell ${guess ? guess[index].status : ''}`}>{ guess ? guess[index].letter : ''}</span>)
+            const className = guess ? `cell ${guess[index].status}` : 'cell';
+            return (<span key={index} className={className}>{ guess ? guess[index].letter : ''}</span>)
           })
         }
       </p>
